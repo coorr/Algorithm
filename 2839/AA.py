@@ -1,0 +1,33 @@
+from collections import deque
+from glob import glob
+from msvcrt import kbhit
+from os import remove
+from re import A, I
+import sys
+import heapq as hq
+import itertools as it
+import math 
+sys.stdin=open("10250/input.txt","r")
+
+sugar = int(input())
+bag=0
+num=0
+
+while sugar >= 0 :
+    if sugar % 5 == 0 :  # 5의 배수이면
+        bag += (sugar // 5)  # 5로 나눈 몫을 구해야 정수가 됨
+        print(bag)
+        break
+    sugar -= 3  
+    bag += 1  # 5의 배수가 될 때까지 설탕-3, 봉지+1
+else:
+    print(-1)
+    
+                    
+
+
+    
+    
+    
+                
+                
