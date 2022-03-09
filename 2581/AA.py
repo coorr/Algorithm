@@ -7,7 +7,7 @@ import sys
 import heapq as hq
 import itertools as it
 import math 
-sys.stdin=open("1978/input.txt","r")
+sys.stdin=open("zz/input.txt","r")
 
 a=int(input())
 b=int(input())
