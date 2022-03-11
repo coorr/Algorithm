@@ -1,12 +1,4 @@
-from collections import deque
-from glob import glob
-from msvcrt import kbhit
-from os import remove
-from re import A, I
 import sys
-import heapq as hq
-import itertools as it
-import math 
 sys.stdin=open("1929/input.txt","r")
 
 n,m=map(int,input().split())
