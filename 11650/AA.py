@@ -6,9 +6,10 @@ import math
 
 
 n = int(sys.stdin.readline())
-so = []
+array=[]
 for i in range(n):
-    so.append(list(map(int, sys.stdin.readline().split())))
-so.sort(key=lambda x: (x[0], x[1]))
-for i in so:
-    print(i[0], i[1])            
+    a,b=map(int,input().split())
+    array.append([a,b])
+s_array=sorted(array)   
+for i in range(n):
+    print(s_array[i][0],s_array[i][1])

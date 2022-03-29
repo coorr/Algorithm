@@ -1,19 +1,19 @@
-from dis import dis
+
 import sys
 sys.stdin=open("1181/input.txt","r")
-import math 
 
-n = int(sys.stdin.readline())
-lst = []
 
+
+n=int(input())
+List=[]
 for i in range(n):
-    lst.append(sys.stdin.readline().strip())
-set_lst = set(lst)
-lst = list(set_lst)
-lst.sort()
-lst.sort(key = len)
+    List.append(sys.stdin.readline().strip())
+List_set=set(List)
+List_list=list(List_set)
 
-for i in lst:
-    print(i)
-                
-                
+List_list.sort()
+List_list.sort(key=len)
+# List_list.sort(key=len)
+
+for x in List_list:
+    print(x)
