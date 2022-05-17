@@ -2,37 +2,24 @@ from ast import Return
 import sys
 sys.stdin=open("5월/문제/input.txt","r")
 
-n=int(input())
+stack=list(sys.stdin.readline().strip())
+second=[]
+n=int(sys.stdin.readline())
 
-stack=[]
-array=[]
-result=["+"]
-lt=0
-rt=0
-for i in range(1,n+1):
-    stack.append(int(input()))
-    array.append(i)
-
-stack.append('end')
-array.append('end')
-
-while(True):
-    if stack[lt] == array[rt]:
-        array.pop(rt)
-        lt+=1
-        rt-=1
-        
-        result.append("-")  
-        if stack[lt] == 'end':
-            break      
+for _ in range(n):
+    command=list(sys.stdin.readline().split())
+    
+    if command[0] == 'L':
+        if stack:
+            second.append(stack.pop())
+    elif command[0] == 'D':
+        if second:
+            stack.append(second.pop())
+    elif command[0] == 'B':
+        if stack:
+            stack.pop()
     else:
-        rt+=1
-        result.append("+")
-        if array[rt] == 'end':
-            break
-        
-if len(array) != 1:
-    print("NO")
-else:
-    for x in result:
-        print(x)
+        stack.append(command[1])
+stack.extend(reversed(second))
+for x in stack:
+    print(x, end='')
