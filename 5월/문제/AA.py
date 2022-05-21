@@ -1,18 +1,40 @@
-from ast import Return
-import re
+
+import re 
 import sys
+from collections import defaultdict
 sys.stdin=open("5월/문제/input.txt","r")
 
-def DFS(n):
-    if n > 7:
-        return 
-    else:
-        DFS(n * 2)
-        DFS(n * 2 + 1)
-        
 
-if __name__=="__main__":
-    DFS(1)
+
+def solution(user_id):
+    print(user_id)
+    if len(user_id) == 0:
+        user_id = "a"
+    if len(user_id) >= 16:
+        user_id= user_id[:15]
+        if user_id[-1] == ".":
+            user_id= user_id[:14]
+            
+    if len(user_id) <= 2:
+        for _ in range(3-len(user_id)):
+            user_id += user_id[-1]
+            
+    
+    return user_id
+
+def remove_unique(user_id):
+    user_id = user_id.lower()
+    user_id = re.sub(r"[^a-zA-Z0-9_\.-]",'',user_id)
+    user_id = re.sub(r"\.+",".",user_id)
+    user_id = re.sub(r"^[.]|[.]$",'',user_id)
+    # print(user_id)
+    # if user_id[-1] == ".":
+    #     user_id = user_id.replace(user_id[-1],"")
+
+    return user_id
+
+
+print(solution(remove_unique("=.=")))
 
 
                 
